@@ -602,7 +602,7 @@ main {
   }
 
   .navbar-shell {
-    inset: 0.8rem 0 auto;
+    inset: auto 0 0.8rem;
     padding: 0 0.8rem;
   }
 
