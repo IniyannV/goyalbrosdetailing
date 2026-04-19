@@ -1,0 +1,88 @@
+:root {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: #0a296a;
+  background:
+    radial-gradient(circle at top left, rgba(70, 186, 252, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(10, 41, 106, 0.1), transparent 22%),
+    #ffffff;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --color-primary: #0a296a;
+  --color-secondary: #46bafc;
+  --color-white: #ffffff;
+  --shadow-soft: 0 18px 40px rgba(10, 41, 106, 0.12);
+  --shadow-nav: 0 10px 25px rgba(10, 41, 106, 0.14);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --content-width: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--color-primary);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#root {
+  min-height: 100vh;
+}
