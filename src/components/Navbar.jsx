@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import logo from '../logo.PNG';
 
 function Navbar({ links, onNavigate }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,16 +31,10 @@ function Navbar({ links, onNavigate }) {
           aria-label="Go to home section"
         >
           <span className="nav-logo-frame">
-            <span className="nav-logo-fallback" aria-hidden="true">
-              GB
-            </span>
             <img
-              src="/logo.png"
+              src={logo}
               alt="Goyal Bros. Detailing"
-              className="nav-logo"
-              onError={(event) => {
-                event.currentTarget.style.opacity = '0';
-              }}
+              style={{ height: '50px', objectFit: 'contain' }}
             />
           </span>
           <span className="nav-brand-copy">
