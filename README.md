@@ -1,6 +1,6 @@
 # Goyal Bros. Detailing
 
-Single-page React website for a mobile interior car detailing business serving the Dallas-Fort Worth area.
+Single-page React website for a mobile interior car detailing business serving Coppell, TX.
 
 ## Run locally
 

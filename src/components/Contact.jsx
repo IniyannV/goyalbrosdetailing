@@ -6,7 +6,8 @@ const initialForm = {
   fullName: '',
   email: '',
   phone: '',
-  carType: 'Sedan',
+  address: '',
+  package: '',
   preferredDate: '',
   preferredTime: '',
   notes: '',
@@ -15,6 +16,7 @@ const initialForm = {
 function Contact() {
   const { ref, isVisible } = useReveal();
   const [formData, setFormData] = useState(initialForm);
+  const [validationError, setValidationError] = useState('');
   const [status, setStatus] = useState({
     type: 'idle',
     message: '',
@@ -30,8 +32,25 @@ function Contact() {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
+  const hasMissingRequiredFields = () =>
+    !formData.fullName.trim() ||
+    !formData.email.trim() ||
+    !formData.phone.trim() ||
+    !formData.address.trim() ||
+    !formData.package.trim() ||
+    !formData.preferredDate.trim() ||
+    !formData.preferredTime.trim();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (hasMissingRequiredFields()) {
+      setValidationError('Please complete all required fields before submitting.');
+      setStatus({ type: 'idle', message: '' });
+      return;
+    }
+
+    setValidationError('');
     setStatus({ type: 'loading', message: '' });
 
     if (!serviceId || !templateId || !publicKey) {
@@ -47,7 +66,8 @@ function Contact() {
       full_name: formData.fullName,
       email_address: formData.email,
       phone_number: formData.phone,
-      car_type: formData.carType,
+      address: formData.address,
+      package: formData.package,
       preferred_date: formData.preferredDate,
       preferred_time: formData.preferredTime,
       additional_notes: formData.notes || 'None provided',
@@ -57,7 +77,8 @@ function Contact() {
         `Name: ${formData.fullName}`,
         `Email: ${formData.email}`,
         `Phone: ${formData.phone}`,
-        `Car Type: ${formData.carType}`,
+        `Address: ${formData.address}`,
+        `Package: ${formData.package}`,
         `Preferred Date: ${formData.preferredDate}`,
         `Preferred Time: ${formData.preferredTime}`,
         `Additional Notes: ${formData.notes || 'None provided'}`,
@@ -112,9 +133,9 @@ function Contact() {
             <input
               type="text"
               name="fullName"
+              placeholder="Enter your full name"
               value={formData.fullName}
               onChange={handleChange}
-              required
             />
           </label>
 
@@ -123,9 +144,9 @@ function Contact() {
             <input
               type="email"
               name="email"
+              placeholder="Enter your email address"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </label>
 
@@ -134,23 +155,34 @@ function Contact() {
             <input
               type="tel"
               name="phone"
+              placeholder="Enter your phone number"
               value={formData.phone}
               onChange={handleChange}
-              required
             />
           </label>
 
           <label>
-            Car Type
-            <select
-              name="carType"
-              value={formData.carType}
+            Address
+            <input
+              type="text"
+              name="address"
+              placeholder="Enter your address"
+              value={formData.address}
               onChange={handleChange}
-              required
+            />
+          </label>
+
+          <label>
+            Package
+            <select
+              name="package"
+              value={formData.package}
+              onChange={handleChange}
             >
-              <option value="Sedan">Sedan</option>
-              <option value="SUV/Truck">SUV/Truck</option>
-              <option value="Van/XL">Van/XL</option>
+              <option value="">-- Select a Package --</option>
+              <option value="Full Interior">Full Interior</option>
+              <option value="Full Exterior">Full Exterior</option>
+              <option value="Full Detail">Full Detail</option>
             </select>
           </label>
 
@@ -163,7 +195,6 @@ function Contact() {
                 min={minDate}
                 value={formData.preferredDate}
                 onChange={handleChange}
-                required
               />
             </label>
 
@@ -174,7 +205,6 @@ function Contact() {
                 name="preferredTime"
                 value={formData.preferredTime}
                 onChange={handleChange}
-                required
               />
             </label>
           </div>
@@ -189,6 +219,10 @@ function Contact() {
               placeholder="Optional details about your vehicle or location"
             />
           </label>
+
+          {validationError ? (
+            <p className="form-message validation-error">{validationError}</p>
+          ) : null}
 
           <button
             type="submit"

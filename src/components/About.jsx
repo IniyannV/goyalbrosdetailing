@@ -15,7 +15,7 @@ function About() {
           <h2>Friendly, convenient detailing that fits your day</h2>
           <p>
             Goyal Bros. Detailing is a mobile detailing service built for everyday
-            car owners across DFW who want a cleaner, fresher ride without the
+            car owners across Coppell, TX who want a cleaner, fresher ride without the
             hassle of driving to a shop. We focus on quality interior cleaning,
             dependable service, and the kind of thoughtful care that makes your
             vehicle feel better every time you open the door.
@@ -23,7 +23,7 @@ function About() {
           <div className="about-points">
             <span>Mobile convenience</span>
             <span>Interior specialists</span>
-            <span>DFW service area</span>
+            <span>Coppell, TX service area</span>
           </div>
         </div>
 

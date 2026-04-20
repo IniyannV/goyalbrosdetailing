@@ -2,19 +2,9 @@ import useReveal from '../hooks/useReveal';
 
 const galleryPairs = [
   {
-    title: 'Daily driver refresh',
-    before: 'https://placehold.co/600x400/ffffff/0a296a?text=Before+1',
-    after: 'https://placehold.co/600x400/46bafc/0a296a?text=After+1',
-  },
-  {
-    title: 'Family SUV detail',
-    before: 'https://placehold.co/600x400/ffffff/0a296a?text=Before+2',
-    after: 'https://placehold.co/600x400/46bafc/0a296a?text=After+2',
-  },
-  {
-    title: 'Work truck cleanup',
-    before: 'https://placehold.co/600x400/ffffff/0a296a?text=Before+3',
-    after: 'https://placehold.co/600x400/46bafc/0a296a?text=After+3',
+    title: 'Interior transformation',
+    before: 'https://placehold.co/600x400/ffffff/0a296a?text=Before',
+    after: 'https://placehold.co/600x400/46bafc/0a296a?text=After',
   },
 ];
 

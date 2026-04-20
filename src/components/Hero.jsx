@@ -11,10 +11,10 @@ function Hero({ onBookClick }) {
     >
       <div className="section-inner hero-content">
         <div className="hero-copy">
-          <p className="section-kicker">Mobile interior detailing across DFW</p>
-          <h1>Premium Interior Detailing in DFW</h1>
+          <p className="section-kicker">Mobile interior detailing across Coppell, TX</p>
+          <h1>Premium Interior Detailing in Coppell, TX</h1>
           <p className="hero-subheading">
-            We come to you - wherever you are in the Dallas-Fort Worth area.
+            We come to you - wherever you are in Coppell, TX.
           </p>
           <div className="hero-actions">
             <button type="button" className="button-primary" onClick={onBookClick}>

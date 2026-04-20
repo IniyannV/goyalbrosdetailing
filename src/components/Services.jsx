@@ -2,38 +2,39 @@ import useReveal from '../hooks/useReveal';
 
 const packages = [
   {
-    name: 'Sedan Package',
-    description: 'Ideal for standard sedans and compact cars.',
+    name: 'Full Interior',
+    price: '$XX',
+    description: 'A complete interior refresh for your vehicle cabin.',
     features: [
-      'Full interior vacuuming',
-      'Dashboard and console wipe-down',
-      'Interior window cleaning',
-      'Light odor treatment',
-      'Seat spot cleaning',
+      'Deep Vacuuming',
+      'Seat and Carpet Shampoo',
+      'Carpet and Upholstery Cleaning',
+      'Surface Conditioning',
     ],
   },
   {
-    name: 'SUV / Truck Package',
-    description: 'For larger vehicles, family SUVs, and work trucks.',
+    name: 'Full Exterior',
+    price: '$XX',
+    description: 'A thorough exterior cleaning with safe wash methods and finish care.',
     features: [
-      'Deep interior vacuuming',
-      'Dashboard, doors, and trim wipe-down',
-      'Streak-free window cleaning',
-      'Odor refresh treatment',
-      'Seat shampooing and floor mat care',
+      'Thorough Hand Wash',
+      'Two Bucket Method',
+      'Foam Cannon Bath',
+      'Tire and Wheel Cleaning',
+      'Tire Shining',
+    ],
+  },
+  {
+    name: 'Full Detail',
+    price: '$XX',
+    description:
+      'Everything in Full Interior + Full Exterior combined at a lower price.',
+    features: [
+      'Full Interior service included',
+      'Full Exterior service included',
+      'Combined package savings',
     ],
     featured: true,
-  },
-  {
-    name: 'Van / XL Package',
-    description: 'For minivans, full-size vans, and oversized vehicles.',
-    features: [
-      'Third-row and cargo area vacuuming',
-      'Complete interior surface wipe-down',
-      'Window and mirror cleaning',
-      'Odor treatment for high-traffic interiors',
-      'Seat and upholstery shampooing',
-    ],
   },
 ];
 
@@ -49,11 +50,7 @@ function Services({ onBookClick }) {
       <div className="section-inner">
         <div className="section-heading">
           <p className="section-kicker">Services</p>
-          <h2>Interior packages built around your vehicle</h2>
-          <p>
-            Pick the package that fits your car size and let us bring the clean
-            right to you.
-          </p>
+          <h2>Packages We Offer</h2>
         </div>
 
         <div className="services-grid">
@@ -66,6 +63,7 @@ function Services({ onBookClick }) {
                 <span className="service-badge">Most Popular</span>
               ) : null}
               <h3>{service.name}</h3>
+              <p className="service-price">{service.price}</p>
               <p className="service-description">{service.description}</p>
               <ul className="service-list">
                 {service.features.map((feature) => (
