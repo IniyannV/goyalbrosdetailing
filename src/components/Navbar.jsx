@@ -33,13 +33,12 @@ function Navbar({ links, onNavigate, theme, onToggleTheme }) {
           <span className="nav-logo-frame">
             <img
               src={logo}
-              alt="Goyal Bros. Detailing"
+              alt="Prismo Detailing"
               style={{ height: '50px', objectFit: 'contain' }}
             />
           </span>
           <span className="nav-brand-copy">
-            <span className="nav-brand-name">Goyal Bros.</span>
-            <span className="nav-brand-subtitle">Mobile Detailing</span>
+            <span className="nav-brand-name">Prismo Detailing</span>
           </span>
         </button>
 
