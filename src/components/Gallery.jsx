@@ -1,10 +1,37 @@
 import useReveal from '../hooks/useReveal';
+import frontSeats from '../images/front-seats.HEIC';
+import frontSeatsSecond from '../images/front-seats-2.HEIC';
+import rearSeats from '../images/rear-seats.HEIC';
+import trunk from '../images/trunk.HEIC';
+import frontSeatsFallback from '../images/front-seats.jpg';
+import frontSeatsSecondFallback from '../images/front-seats-2.jpg';
+import rearSeatsFallback from '../images/rear-seats.jpg';
+import trunkFallback from '../images/trunk.jpg';
 
-const galleryPairs = [
+const galleryItems = [
   {
-    title: 'Interior transformation',
-    before: 'https://placehold.co/600x400/f7f8fa/050505?text=Before',
-    after: 'https://placehold.co/600x400/050505/e50914?text=After',
+    label: 'Front Seats',
+    image: frontSeats,
+    fallback: frontSeatsFallback,
+    alt: 'Detailed front seats after cleaning',
+  },
+  {
+    label: 'Front Seats',
+    image: frontSeatsSecond,
+    fallback: frontSeatsSecondFallback,
+    alt: 'Detailed front seats from another angle after cleaning',
+  },
+  {
+    label: 'Rear Seats',
+    image: rearSeats,
+    fallback: rearSeatsFallback,
+    alt: 'Detailed rear seats after cleaning',
+  },
+  {
+    label: 'Trunk',
+    image: trunk,
+    fallback: trunkFallback,
+    alt: 'Detailed trunk after cleaning',
   },
 ];
 
@@ -19,29 +46,22 @@ function Gallery() {
     >
       <div className="section-inner">
         <div className="section-heading">
-          <p className="section-kicker">Before &amp; after</p>
-          <h2>Cleaner interiors you can actually see</h2>
+          <p className="section-kicker">Results</p>
+          <h2>Our Work</h2>
           <p>
-            A few sample transformations that show the difference a focused
-            interior detail can make.
+            Take a look at fresh interior details from recent vehicles.
           </p>
         </div>
 
         <div className="gallery-grid">
-          {galleryPairs.map((pair) => (
-            <article key={pair.title} className="gallery-card">
-              <h3>{pair.title}</h3>
-              <div className="gallery-pair">
-                <figure className="gallery-image">
-                  <span>Before</span>
-                  <img src={pair.before} alt={`${pair.title} before detailing`} />
-                </figure>
-                <figure className="gallery-image">
-                  <span>After</span>
-                  <img src={pair.after} alt={`${pair.title} after detailing`} />
-                </figure>
-              </div>
-            </article>
+          {galleryItems.map((item) => (
+            <figure key={`${item.label}-${item.image}`} className="gallery-card">
+              <picture>
+                <source srcSet={item.image} type="image/heic" />
+                <img src={item.fallback} alt={item.alt} />
+              </picture>
+              <figcaption>{item.label}</figcaption>
+            </figure>
           ))}
         </div>
       </div>
