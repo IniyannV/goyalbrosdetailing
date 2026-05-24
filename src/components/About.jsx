@@ -1,4 +1,5 @@
 import useReveal from '../hooks/useReveal';
+import carSideImage from '../images/car-side.jpg';
 
 function About() {
   const { ref, isVisible } = useReveal();
@@ -29,8 +30,8 @@ function About() {
 
         <div className="image-card">
           <img
-            src="https://placehold.co/720x520/050505/e50914?text=Gloss+Interior+Finish"
-            alt="Gloss interior finish"
+            src={carSideImage}
+            alt="Side view of a detailed car"
           />
         </div>
       </div>
