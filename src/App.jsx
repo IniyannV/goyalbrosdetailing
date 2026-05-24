@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = 'dark';
     document.documentElement.style.colorScheme = 'dark';
-    window.localStorage.setItem('goyal-theme', 'dark');
+    window.localStorage.setItem('prismo-theme', 'dark');
   }, []);
 
   const scrollToSection = (sectionId) => {

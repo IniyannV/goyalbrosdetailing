@@ -1,4 +1,4 @@
-# Goyal Bros. Detailing
+# Prismo Detailing
 
 Single-page React website for a mobile interior car detailing business serving Coppell, TX.
 
@@ -31,7 +31,7 @@ Use these template variables in EmailJS:
 - `to_email`
 - `message`
 
-Point the destination email to `goyalbrosdetailing@gmail.com`.
+Point the destination email to `prismocardetailing@gmail.com`.
 
 ## Logo
 

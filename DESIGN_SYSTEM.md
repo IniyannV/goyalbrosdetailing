@@ -1,4 +1,4 @@
-# Goyal Bros. Detailing Design System
+# Prismo Detailing Design System
 
 ## Visual Direction
 
