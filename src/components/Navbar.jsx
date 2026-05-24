@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import logo from '../logo.PNG';
 
-function Navbar({ links, onNavigate, theme, onToggleTheme }) {
+function Navbar({ links, onNavigate }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavigate = (sectionId) => {
@@ -67,20 +67,6 @@ function Navbar({ links, onNavigate, theme, onToggleTheme }) {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="theme-toggle"
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          aria-pressed={theme === 'light'}
-          onClick={onToggleTheme}
-        >
-          <span className="theme-toggle-track" aria-hidden="true">
-            <span className="theme-toggle-thumb" />
-          </span>
-          <span className="theme-toggle-label">
-            {theme === 'dark' ? 'Dark' : 'Light'}
-          </span>
-        </button>
       </nav>
     </header>
   );
