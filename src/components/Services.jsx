@@ -17,8 +17,8 @@ const packages = [
     price: '$85',
     description: 'A thorough exterior cleaning with safe wash methods and finish care.',
     features: [
-      'Thorough Hand Wash',
-      'Two Bucket Method',
+      'Thorough Two Bucket Hand Wash',
+      'Wax Sealant Aplpication',
       'Foam Cannon Bath',
       'Tire and Wheel Shining + Cleaning',
     ],

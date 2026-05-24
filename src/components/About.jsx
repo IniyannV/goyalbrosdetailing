@@ -15,7 +15,7 @@ function About() {
           <p className="section-kicker">About us</p>
           <h2>Friendly, convenient detailing that fits your day</h2>
           <p>
-            Goyal Bros. Detailing is a mobile detailing service built for everyday
+            Prismo Detailing is a mobile detailing service built for everyday
             car owners across Coppell, TX who want a cleaner, fresher ride without the
             hassle of driving to a shop. We focus on quality interior cleaning,
             dependable service, and the kind of thoughtful care that makes your

@@ -63,15 +63,15 @@ function Contact() {
     }
 
     const templateParams = {
-      full_name: formData.fullName,
-      email_address: formData.email,
-      phone_number: formData.phone,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
       address: formData.address,
       package: formData.package,
-      preferred_date: formData.preferredDate,
-      preferred_time: formData.preferredTime,
-      additional_notes: formData.notes || 'None provided',
-      to_email: 'goyalbrosdetailing@gmail.com',
+      preferredDate: formData.preferredDate,
+      preferredTime: formData.preferredTime,
+      notes: formData.notes || 'None provided',
+      to_email: 'prismocardetailing@gmail.com',
       message: [
         'New appointment request',
         `Name: ${formData.fullName}`,
