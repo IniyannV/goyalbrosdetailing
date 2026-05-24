@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -17,6 +18,28 @@ const navLinks = [
 ];
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'dark';
+    }
+
+    const savedTheme = window.localStorage.getItem('goyal-theme');
+
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: light)').matches
+      ? 'light'
+      : 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem('goyal-theme', theme);
+  }, [theme]);
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
 
@@ -27,7 +50,14 @@ function App() {
 
   return (
     <div className="page-shell">
-      <Navbar links={navLinks} onNavigate={scrollToSection} />
+      <Navbar
+        links={navLinks}
+        onNavigate={scrollToSection}
+        theme={theme}
+        onToggleTheme={() =>
+          setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'))
+        }
+      />
       <main>
         <Hero onBookClick={() => scrollToSection('contact')} />
         <About />

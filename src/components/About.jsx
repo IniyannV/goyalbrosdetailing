@@ -29,8 +29,8 @@ function About() {
 
         <div className="image-card">
           <img
-            src="https://placehold.co/720x520/46bafc/0a296a?text=Mobile+Detailing+Team"
-            alt="Mobile detailing service placeholder"
+            src="https://placehold.co/720x520/050505/e50914?text=Gloss+Interior+Finish"
+            alt="Gloss interior finish"
           />
         </div>
       </div>

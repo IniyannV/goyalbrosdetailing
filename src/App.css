@@ -1,5 +1,12 @@
 .page-shell {
   overflow-x: clip;
+  background:
+    linear-gradient(180deg, transparent 0, var(--bg-page) 48rem),
+    var(--bg-page);
+  color: var(--text-primary);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 main {
@@ -11,6 +18,11 @@ main {
 .section {
   padding: 6rem 1.5rem;
   scroll-margin-top: 6.5rem;
+  background: var(--bg-section);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .section-inner {
@@ -34,12 +46,12 @@ main {
   letter-spacing: 0.18em;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--accent-bright);
 }
 
 .section h2,
 .section h3 {
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .section h2 {
@@ -48,6 +60,7 @@ main {
 
 .section p {
   font-size: 1.05rem;
+  color: var(--text-secondary);
 }
 
 .reveal {
@@ -79,11 +92,16 @@ main {
   justify-content: space-between;
   gap: 1rem;
   background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(70, 186, 252, 0.22);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 999px;
   box-shadow: var(--shadow-nav);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .nav-brand {
@@ -92,7 +110,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .nav-logo-frame {
@@ -113,11 +131,13 @@ main {
 .nav-brand-name {
   font-weight: 800;
   font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .nav-brand-subtitle {
   font-size: 0.8rem;
-  color: rgba(10, 41, 106, 0.78);
+  color: var(--text-muted);
 }
 
 .nav-links {
@@ -130,8 +150,11 @@ main {
   padding: 0.8rem 1rem;
   border-radius: 999px;
   background: transparent;
-  color: var(--color-primary);
-  font-weight: 600;
+  color: var(--text-secondary);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
@@ -140,8 +163,8 @@ main {
 
 .nav-link:hover,
 .nav-link:focus-visible {
-  background: rgba(70, 186, 252, 0.16);
-  color: var(--color-primary);
+  background: var(--accent-soft);
+  color: var(--accent-bright);
   transform: translateY(-2px);
   outline: none;
 }
@@ -152,7 +175,7 @@ main {
   height: 2.9rem;
   padding: 0;
   border-radius: 50%;
-  background: rgba(70, 186, 252, 0.16);
+  background: var(--accent-soft);
   position: relative;
 }
 
@@ -161,9 +184,68 @@ main {
   left: 0.8rem;
   width: 1.3rem;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--text-primary);
   border-radius: 999px;
   transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.theme-toggle {
+  min-height: 2.9rem;
+  padding: 0.38rem 0.72rem 0.38rem 0.42rem;
+  border: 1px solid var(--button-secondary-border);
+  border-radius: 999px;
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.08);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px var(--accent-ring);
+  outline: none;
+}
+
+.theme-toggle-track {
+  width: 2.35rem;
+  height: 1.35rem;
+  padding: 0.18rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(229, 9, 20, 0.18);
+  border: 1px solid var(--border-strong);
+}
+
+.theme-toggle-thumb {
+  width: 0.88rem;
+  height: 0.88rem;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 12px var(--accent-ring);
+  transform: translateX(0);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+:root[data-theme="light"] .theme-toggle-thumb {
+  transform: translateX(0.95rem);
+  background: #050505;
 }
 
 .nav-toggle span:nth-child(1) {
@@ -197,10 +279,12 @@ main {
   padding-top: 8.5rem;
   padding-bottom: 5rem;
   background:
-    linear-gradient(120deg, rgba(10, 41, 106, 0.9), rgba(10, 41, 106, 0.62)),
-    url("https://placehold.co/1600x1000/0a296a/ffffff?text=Clean+Car+Interior")
-      center/cover;
-  color: var(--color-white);
+    radial-gradient(ellipse at 74% 44%, rgba(229, 9, 20, 0.26), transparent 34%),
+    linear-gradient(105deg, rgba(0, 0, 0, 0.96) 0%, transparent 54%),
+    var(--hero-overlay),
+    var(--bg-page);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
 }
 
 .hero-content {
@@ -223,7 +307,7 @@ main {
 .hero-subheading,
 .hero .highlight-label,
 .hero .highlight-list {
-  color: var(--color-white);
+  color: var(--text-primary);
 }
 
 .hero-subheading {
@@ -242,8 +326,8 @@ main {
 .hero-highlight-card {
   padding: 1.6rem;
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);
@@ -275,7 +359,8 @@ main {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--color-secondary);
+  background: var(--accent-bright);
+  box-shadow: 0 0 12px var(--accent-ring);
 }
 
 .button-primary,
@@ -284,6 +369,8 @@ main {
   padding: 0.95rem 1.55rem;
   border-radius: 999px;
   font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition:
     transform 0.25s ease,
     background-color 0.25s ease,
@@ -292,14 +379,15 @@ main {
 }
 
 .button-primary {
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  box-shadow: 0 16px 30px rgba(70, 186, 252, 0.3);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  box-shadow: 0 18px 34px var(--accent-ring), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .button-secondary {
-  background: rgba(70, 186, 252, 0.12);
-  color: var(--color-primary);
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
 }
 
 .button-primary:hover,
@@ -307,9 +395,7 @@ main {
 .button-secondary:hover,
 .button-secondary:focus-visible {
   transform: scale(1.03);
-  background: var(--color-primary);
-  color: var(--color-white);
-  box-shadow: 0 18px 34px rgba(10, 41, 106, 0.2);
+  box-shadow: 0 18px 34px var(--accent-ring);
   outline: none;
 }
 
@@ -330,7 +416,9 @@ main {
 .about-points span {
   padding: 0.7rem 1rem;
   border-radius: 999px;
-  background: rgba(70, 186, 252, 0.12);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -338,7 +426,7 @@ main {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(70, 186, 252, 0.2);
+  border: 1px solid var(--border);
 }
 
 .services-grid {
@@ -353,9 +441,15 @@ main {
 .booking-form,
 .contact-phone-card {
   background: rgba(255, 255, 255, 0.88);
+  background: var(--bg-elevated);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(10, 41, 106, 0.08);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    color 0.35s ease;
 }
 
 .service-card {
@@ -367,28 +461,29 @@ main {
 }
 
 .service-card.featured {
-  border: 2px solid var(--color-secondary);
+  border: 1px solid var(--border-strong);
   transform: translateY(-0.35rem);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 34px var(--accent-ring);
 }
 
 .service-badge {
   align-self: flex-start;
   padding: 0.45rem 0.8rem;
   border-radius: 999px;
-  background: var(--color-secondary);
-  color: var(--color-primary);
+  background: var(--button-primary-bg);
+  color: #ffffff;
   font-size: 0.85rem;
   font-weight: 800;
 }
 
 .service-description {
-  color: rgba(10, 41, 106, 0.84);
+  color: var(--text-secondary);
 }
 
 .service-price {
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--color-primary);
+  color: var(--accent-bright);
 }
 
 .service-list {
@@ -410,7 +505,8 @@ main {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: var(--color-secondary);
+  background: var(--accent-bright);
+  box-shadow: 0 0 12px var(--accent-ring);
 }
 
 .gallery-grid,
@@ -442,16 +538,18 @@ main {
 .gallery-image span {
   font-size: 0.95rem;
   font-weight: 700;
+  color: var(--text-secondary);
 }
 
 .gallery-image img {
   width: 100%;
   border-radius: var(--radius-md);
+  border: 1px solid var(--border);
 }
 
 .section-accent {
   background:
-    linear-gradient(180deg, rgba(70, 186, 252, 0.08), rgba(255, 255, 255, 0.96));
+    linear-gradient(180deg, var(--accent-soft), var(--bg-section));
 }
 
 .testimonials-grid {
@@ -465,7 +563,7 @@ main {
 }
 
 .testimonial-stars {
-  color: var(--color-secondary);
+  color: var(--accent-bright);
   letter-spacing: 0.12em;
   font-size: 1.15rem;
 }
@@ -476,6 +574,7 @@ main {
 
 .testimonial-name {
   font-weight: 800;
+  color: var(--text-primary);
 }
 
 .contact-copy {
@@ -493,13 +592,16 @@ main {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(10, 41, 106, 0.74);
+  color: var(--text-muted);
   margin-bottom: 0.45rem;
 }
 
 .contact-phone-number {
   font-size: clamp(1.6rem, 2.8vw, 2.35rem);
-  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--accent-bright);
 }
 
 .booking-form {
@@ -519,21 +621,28 @@ main {
 .booking-form textarea {
   width: 100%;
   padding: 0.95rem 1rem;
-  border: 1px solid rgba(10, 41, 106, 0.12);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.96);
-  color: var(--color-primary);
+  background: var(--bg-input);
+  color: var(--text-primary);
   transition:
+    background-color 0.25s ease,
     border-color 0.25s ease,
+    color 0.25s ease,
     box-shadow 0.25s ease;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .booking-form input:focus,
 .booking-form select:focus,
 .booking-form textarea:focus {
   outline: none;
-  border-color: var(--color-secondary);
-  box-shadow: 0 0 0 4px rgba(70, 186, 252, 0.16);
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 4px var(--accent-ring);
 }
 
 .form-row {
@@ -554,13 +663,13 @@ main {
 }
 
 .form-message.success {
-  background: rgba(70, 186, 252, 0.14);
-  color: var(--color-primary);
+  background: var(--accent-soft);
+  color: var(--text-primary);
 }
 
 .form-message.error {
-  background: rgba(10, 41, 106, 0.08);
-  color: var(--color-primary);
+  background: rgba(229, 9, 20, 0.1);
+  color: var(--text-primary);
 }
 
 .form-message.validation-error {
@@ -571,7 +680,8 @@ main {
 .footer {
   padding: 1.5rem;
   text-align: center;
-  color: rgba(10, 41, 106, 0.78);
+  color: var(--text-muted);
+  background: var(--bg-page);
 }
 
 @media (max-width: 900px) {
@@ -607,6 +717,12 @@ main {
   .nav-toggle {
     display: inline-flex;
     margin-left: auto;
+  }
+
+  .theme-toggle {
+    order: 3;
+    width: 100%;
+    justify-content: center;
   }
 
   .nav-links {

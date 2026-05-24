@@ -3,8 +3,8 @@ import useReveal from '../hooks/useReveal';
 const galleryPairs = [
   {
     title: 'Interior transformation',
-    before: 'https://placehold.co/600x400/ffffff/0a296a?text=Before',
-    after: 'https://placehold.co/600x400/46bafc/0a296a?text=After',
+    before: 'https://placehold.co/600x400/f7f8fa/050505?text=Before',
+    after: 'https://placehold.co/600x400/050505/e50914?text=After',
   },
 ];
 

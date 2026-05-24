@@ -3,7 +3,7 @@ import useReveal from '../hooks/useReveal';
 const packages = [
   {
     name: 'Full Interior',
-    price: '$XX',
+    price: '$100',
     description: 'A complete interior refresh for your vehicle cabin.',
     features: [
       'Deep Vacuuming',
@@ -14,19 +14,18 @@ const packages = [
   },
   {
     name: 'Full Exterior',
-    price: '$XX',
+    price: '$85',
     description: 'A thorough exterior cleaning with safe wash methods and finish care.',
     features: [
       'Thorough Hand Wash',
       'Two Bucket Method',
       'Foam Cannon Bath',
-      'Tire and Wheel Cleaning',
-      'Tire Shining',
+      'Tire and Wheel Shining + Cleaning',
     ],
   },
   {
     name: 'Full Detail',
-    price: '$XX',
+    price: '$160',
     description:
       'Everything in Full Interior + Full Exterior combined at a lower price.',
     features: [
